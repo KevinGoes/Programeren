@@ -3,3 +3,6 @@ bezitPaspoort = input("Heb je een paspoort? ")
 
 if bezitPaspoort == "ja" and leeftijd >= 18:
     print("Gefeliciteerd!, je mag stemmen!")
+
+else:
+    print("Helaas je mag niet stemmen")
