@@ -23,10 +23,10 @@ else:
     if tijdWeek == 'ja':
         if leeftijd <= 12 or leeftijd >= 65:
             print("U krijgt 35% korting, daarmee komt u uit op een bedrag van: ")
-            print(round(standaardtarief * 0.65,2))
+            print(round(standaardtarief * 0.65, 2))
         else:
             print("U krijgt 40% korting, daarmee komt u uit op een bedrag van: ")
-            print(round(standaardtarief * 0.60,2))
+            print(round(standaardtarief * 0.60, 2))
     else:
         if leeftijd <= 12 or leeftijd >= 65:
             print("U krijgt 30% korting, daarmee komt u uit op een bedrag van: ")
@@ -34,4 +34,3 @@ else:
         else:
             print("Helaas, u krijgt geen korting, daarmee komt u uit op een bedrag van: ")
             print(round(standaardtarief, 2))
-
