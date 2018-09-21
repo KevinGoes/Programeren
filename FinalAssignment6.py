@@ -5,6 +5,8 @@ weekendrit = input("Reist u in het weekend 'ja' of 'nee'? ")
 def standaardprijs(afstandKM):
     if afstandKM > 50:
         return afstandKM * 0.60 + 15
+    if afstandKM < 0:
+        return afstandKM * 0
     else:
         return afstandKM * 0.80
 
