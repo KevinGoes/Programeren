@@ -8,18 +8,22 @@ def standaardprijs(afstandKM):
     else:
         return afstandKM * 0.80
 
+
 def ritprijs(leeftijd, weekendrit, afstandKM):
+    rekenprijs = standaardprijs(afstandKM)
     if weekendrit == 'ja':
         if leeftijd < 12 or leeftijd >= 65:
-            return round(afstandKM * 0.65, 2)
+            return round(rekenprijs * 0.65, 2)
         else:
-            return round(afstandKM * 0.60, 2)
+            return round(rekenprijs * 0.60, 2)
     if weekendrit == 'nee':
         if leeftijd < 12:
-            return round(afstandKM * 0.60, 2)
+            return round(rekenprijs * 0.70, 2)
         else:
-            return round(afstandKM, 2)
+            return round(rekenprijs, 2)
     else:
         print(weekendrit + " is geen ja of nee!")
 
+
 print(ritprijs(leeftijd, weekendrit, afstandKM))
+
