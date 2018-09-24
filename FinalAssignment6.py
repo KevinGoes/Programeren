@@ -4,6 +4,7 @@ weekendrit = input("Reist u in het weekend 'ja' of 'nee'? ")
 
 while weekendrit != 'ja' and weekendrit != 'nee':
     print(weekendrit + ' is geen correcte waarde! Probeer opnieuw!')
+    print('\n')
     weekendrit = input("Reist u in het weekend 'ja' of 'nee'? ")
 
 def standaardprijs(afstandKM):
