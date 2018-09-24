@@ -1,11 +1,9 @@
 def kwadraten_som(grondgetallen):
+    output_lijst = []
     for getal in grondgetallen:
-        if getal < 0:
-            grondgetallen.remove(getal)
-    return grondgetallen[0]**2 + grondgetallen[1]**2 + grondgetallen[2]**2
+        if getal > 0:
+            getal = getal**2
+            output_lijst.append(getal)
+    return sum(output_lijst)
 
-
-grondgetallen = [5, -2, -19, 16, 9]
-kwadraten_som(grondgetallen)
-
-print(kwadraten_som(grondgetallen))
+print(kwadraten_som([4, 5, 3, -81]))
