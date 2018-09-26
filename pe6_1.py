@@ -1,6 +1,8 @@
-def som(getallen):
-    return getallen[0] + getallen[1] + getallen[2]
+def som(getal1, getal2, getal3):
+    return getal1 + getal2 + getal3
 
 
-x = som([1, 2, 5])
-print(x)
+getal1 = 1
+getal2 = 2
+getal3 = 5
+print(som(getal1, getal2, getal3))
