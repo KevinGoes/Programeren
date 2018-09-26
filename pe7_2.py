@@ -1,13 +1,11 @@
-invoer = open('kaartnummers.txt', 'r')
-aantalRegels = invoer.readlines()
-invoer.close()
+def lijst(file):
+    infile = open(file, "r")
+    invoer = infile.readlines()
+    infile.close()
+    for i in invoer:
+        i.split(",")
+        print(i[8:-1], "heeft kaartnummer:",i[:6])
 
-invoer = open('kaartnummers.txt', 'r')
 
-for gegevens in aantalRegels:
-    x = invoer.read(6)
-    y = invoer.read(2)
-    z = invoer.readline()
-    print(z + ' heeft kaartnummer: ' + x)
-
-invoer.close()
+file = "kaartnummers.txt"
+lijst(file)
