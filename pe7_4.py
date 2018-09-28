@@ -6,7 +6,7 @@ binnenKomer = input("Hoe heet je? ")
 
 while binnenKomer != laatsteBinnenkomer:
     invoer = open('hardlopers.txt', 'a')
-    invoer.write(s, ' ', binnenKomer, '\n')
+    invoer.write(s + ' ' + binnenKomer + '\n')
     laatsteBinnenkomer = binnenKomer
     invoer.close()
     binnenKomer = input("Hoe heet je? ")
