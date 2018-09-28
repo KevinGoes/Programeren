@@ -9,8 +9,17 @@ def nieuweKluis():
     invoer = open('kluizen.txt', 'r')
     kluizenVrij = 12 - len(invoer.readlines())
     invoer.close()
-    if kluizenVrij == 8:
-        return kluizenVrij
+    if kluizenVrij == 0:
+        return 'false'
+    else:
+        invoer = open('kluizen', 'w+')
+        aantalRegels = 12 - len(invoer.readlines())
+        for i in aantalRegels:
+            return "Hoi"
+#            if i + 1 in invoer:
+#                invoer.append(i + 1, ';', kluizenWachtwoord)
+#                return i + 1
+
 
 
 def kluisOpenen():
@@ -41,7 +50,8 @@ while doorgaan == 'True':
         else:
             break
     elif invoer == '2':
-        if nieuweKluis() == 8:
+        kluizenWachtwoord = input('Voer alvast uw toekomstige wachtwoord in: ')
+        if nieuweKluis() == 'false':
             print('Er zijn geen kluizen vrij! \n')
             wiltDoorgaan = input('Wilt u nog wat weten? ')
             if wiltDoorgaan == 'ja':
@@ -49,7 +59,7 @@ while doorgaan == 'True':
             else:
                 break
         else:
-            print('Kut')
+            print('Uw nieuwe kluis is :', nieuweKluis())
     elif invoer == '3':
         print('3')
     else:
