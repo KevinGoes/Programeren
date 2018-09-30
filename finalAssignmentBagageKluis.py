@@ -6,24 +6,42 @@ def toonAantalKluizenVrij():
 
 
 def nieuweKluis():
-    invoer = open('kluizen.txt', 'r')
-    kluizenVrij = 12 - len(invoer.readlines())
-    invoer.close()
-    if kluizenVrij == 0:
-        return 'false'
+    if toonAantalKluizenVrij() > 0:
+        kluizen = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+        invoer = open('kluizen.txt', 'r')
+        aantalRegels = len(invoer.readlines())
+        invoer.seek(0)
+        for i in range(aantalRegels):
+            tmp = invoer.read(2)
+            if ';' in tmp:
+                tmp = tmp.replace(';', '')
+                kluizen.remove(tmp)
+            else:
+                kluizen.remove(tmp)
+            invoer.readline()
+        return kluizen
     else:
-        invoer = open('kluizen', 'w+')
-        aantalRegels = 12 - len(invoer.readlines())
-        for i in aantalRegels:
-            return "Hoi"
-#            if i + 1 in invoer:
-#                invoer.append(i + 1, ';', kluizenWachtwoord)
-#                return i + 1
+        return 'geenkluizenvrij'
 
 
-
-def kluisOpenen():
-    asdf
+def kluisOpenen(kluisNummer, wachtwoord3):
+    invoer = open('kluizen.txt', 'r')
+    aantalRegels = len(invoer.readline())
+    invoer.seek(0)
+    for i in range(aantalRegels):
+        tmp = invoer.read(2)
+        if ';' in tmp:
+            tmp = tmp.replace(';', '')
+        if tmp == kluisNummer:
+            invoer.read(1)
+            wtmp = invoer.readline()
+            if wtmp == wachtwoord3:
+                invoer.close()
+                return 'Goed'
+            else:
+                invoer.readline()
+        else:
+            invoer.readline()
 
 
 def kluisTeruggeven():
@@ -50,8 +68,7 @@ while doorgaan == 'True':
         else:
             break
     elif invoer == '2':
-        kluizenWachtwoord = input('Voer alvast uw toekomstige wachtwoord in: ')
-        if nieuweKluis() == 'false':
+        if nieuweKluis() == 'geenkluizenvrij':
             print('Er zijn geen kluizen vrij! \n')
             wiltDoorgaan = input('Wilt u nog wat weten? ')
             if wiltDoorgaan == 'ja':
@@ -59,8 +76,26 @@ while doorgaan == 'True':
             else:
                 break
         else:
-            print('Uw nieuwe kluis is :', nieuweKluis())
+            print('Kluizen', nieuweKluis(), 'zijn nog vrij!')
+            invoer2 = input('Welke kluis wilt u? ')
+            while invoer2 not in '1234567890':
+                print(invoer2, 'is geen kluisnummer!')
+                invoer2 = input('probeer het nogmaals! ')
+            wachtwoordInvoer = input('Welk wachtwoord wilt u gebruiken? ')
+            invoerBestand = open('kluizen.txt', 'a+')
+            invoerBestand.readlines()
+            invoerBestand.write('\n' + invoer2 + ';' + wachtwoordInvoer)
+            print('Kluis ', invoer2, ' is van u!')
+            invoerBestand.close()
+            wiltDoorgaan = input('Wilt u nog wat weten? ')
+            if wiltDoorgaan == 'ja':
+                doorgaan = 'True'
+            else:
+                break
     elif invoer == '3':
-        print('3')
+        kluisNummer = input('Welk kluisnummer heeft u? ')
+        wachtwoord3 = input('Welk wachtwoord heeft u? ')
+        print(kluisOpenen(kluisNummer, wachtwoord3))
+
     else:
         print('4')
