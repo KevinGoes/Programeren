@@ -31,9 +31,9 @@ def kluisOpenen(kluisNummer, wachtwoord3):
         tmp = tmp.split(';')
         if tmp[0] == kluisNummer:
             if tmp[1] == wachtwoord3:
-                return 'toegang'
+                return 'U heeft nu toegang tot uw kluis!'
             else:
-                return 'foutWachtwoord'
+                return 'Het kluisnummer en wachtwoord komen niet overeen!'
         else:
             pass
 
@@ -76,7 +76,6 @@ while doorgaan == 'True':
             invoerBestand.write('\n' + invoer2 + ';' + wachtwoordInvoer)
             print('Kluis ', invoer2, ' is van u! \n')
             invoerBestand.close()
-            wiltDoorgaan = input('Wilt u nog wat weten? ')
         wiltDoorgaan = input('Wilt u nog wat weten? ')
         if wiltDoorgaan == 'ja':
             doorgaan = 'True'
@@ -85,18 +84,11 @@ while doorgaan == 'True':
     elif invoer == '3':
         kluisNummer = input('Welk kluisnummer heeft u? ')
         wachtwoord3 = input('Welk wachtwoord heeft u? ')
-        if kluisOpenen(kluisNummer, wachtwoord3) == 'toegang':
-            print('U heeft toegang tot uw kluis')
-        elif kluisOpenen(kluisNummer, wachtwoord3) == 'foutWachtwoord':
-            print('Fout wachtwoord!')
-        else:
-            print('Deze kluis is niet in gebruik!')
-        print('\n')
+        print(kluisOpenen(kluisNummer, wachtwoord3), '\n')
         wiltDoorgaan = input('Wilt u nog wat weten? ')
         if wiltDoorgaan == 'ja':
             doorgaan = 'True'
         else:
             break
-
     else:
         print('4')
