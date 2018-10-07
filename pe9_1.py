@@ -3,7 +3,7 @@ def sum():
     aantalKeer = 0
     while True:
         nextInt = input('Geef een getal: ')
-        if nextInt == '0':
+        if nextInt == '':
             break
         else:
             total += int(nextInt)
