@@ -4,5 +4,5 @@ def f(b):  # f has global scope, b has local scope
 
 
 a = 0  # this a has global scope
-print('f(3) =', f(3))
-print('a is ', a)  # global a is still 0
+print('f(3) = {}'.format(f(3)))
+print('a is {}'.format(a))
