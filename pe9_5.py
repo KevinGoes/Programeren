@@ -12,7 +12,6 @@ def namen():
                     aantal[naam] += 1
                 else:
                     aantal[naam] = 1
-            break
     return aantal
 
 
