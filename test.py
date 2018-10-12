@@ -1,8 +1,29 @@
-def f(b):  # f has global scope, b has local scope
-    a = 6  # this a has scope local to function call f()
-    return a*b  # this a is the local a
+def omzettenASCII(omzetWaarde):
+    lijst = list(omzetWaarde)
+    i = 0
+    omgezetteWaarde = []
+    for letter in lijst:
+        ASCII = ord(lijst[i]) - 3
+        CHAR = chr(ASCII)
+        omgezetteWaarde.append(CHAR)
+        i += 1
+    zin = ''.join(omgezetteWaarde)
+    return zin
 
 
-a = 0  # this a has global scope
-print('f(3) = {}'.format(f(3)))
-print('a is {}'.format(a))
+def terugomzettenASCII(omgezetteWaarde):
+    lijst = list(omgezetteWaarde)
+    i = 0
+    omgezetteWaarde = []
+    for letter in lijst:
+        ASCII = ord(lijst[i]) + 3
+        CHAR = chr(ASCII)
+        omgezetteWaarde.append(CHAR)
+        i += 1
+    zin = ''.join(omgezetteWaarde)
+    return zin
+
+print(omzettenASCII('staling'))
+print(omzettenASCII('wachtwoord'))
+print(omzettenASCII('datum'))
+print(terugomzettenASCII(''))
