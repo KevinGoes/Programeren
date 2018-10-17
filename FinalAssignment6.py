@@ -7,6 +7,7 @@ while weekendrit != 'ja' and weekendrit != 'nee':
     print('\n')
     weekendrit = input("Reist u in het weekend 'ja' of 'nee'? ")
 
+
 def standaardprijs(afstandKM):
     if afstandKM > 50:
         return afstandKM * 0.60 + 15
@@ -24,7 +25,7 @@ def ritprijs(leeftijd, weekendrit, afstandKM):
         else:
             return round(rekenprijs * 0.60, 2)
     if weekendrit == 'nee':
-        if leeftijd < 12:
+        if leeftijd < 12 or leeftijd >= 65:
             return round(rekenprijs * 0.70, 2)
         else:
             return round(rekenprijs, 2)

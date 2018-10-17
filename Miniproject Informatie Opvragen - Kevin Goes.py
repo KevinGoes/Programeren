@@ -1,5 +1,4 @@
 import csv
-from getpass import getpass
 
 
 def omzettenASCII(omzetWaarde):
@@ -30,12 +29,12 @@ def terugomzettenASCII(omgezetteWaarde):
 
 def infoPubliek():
     with open('stalling.csv', 'r', newline='') as myCSVFile:
-        lezer = csv.DictReader(myCSVFile, delimiter=';')
+        lezer = csv.DictReader(myCSVFile, delimiter=',')
         aantalRegels = 0
         stallingBezet = []
         for regel in lezer:
             aantalRegels += 1
-            omgezet = terugomzettenASCII(regel['pq^ifkd'])
+            omgezet = terugomzettenASCII(regel['pq^iifkd'])
             stallingBezet.append(omgezet)
         return aantalRegels, stallingBezet
 
@@ -50,7 +49,7 @@ def infoPersoonlijk():
                 with open('stalling.csv', 'r', newline='') as myCSVFile:
                     aantalRegels = 0
                     wachtwoord = []
-                    lezer = csv.DictReader(myCSVFile, delimiter=';')
+                    lezer = csv.DictReader(myCSVFile, delimiter=',')
                     for regel in lezer:
                         aantalRegels += 1
                         omgezet = terugomzettenASCII(regel['t^`eqtlloa'])

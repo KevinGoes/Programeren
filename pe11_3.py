@@ -12,7 +12,7 @@ def hoogsteScore():
                 count = score
                 datum = regel[1]
                 naam = regel[0]
-        print('De hoogste score is: {} op {} behaald door {}'.format(count, datum, naam))
+        return 'De hoogste score is: {} deze score is behaald op {} door {}'.format(count, datum, naam)
 
 
 print(hoogsteScore())

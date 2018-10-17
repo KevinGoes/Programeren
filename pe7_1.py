@@ -9,8 +9,7 @@ def table():
         print(uitkomst, "\t", float(i))
 
 
-print(convert(25))
-print("\n")
+print(convert(25), '\n')
 print(table())
 
 

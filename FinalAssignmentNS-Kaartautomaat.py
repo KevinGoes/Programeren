@@ -5,7 +5,7 @@ def inlezenBeginstation(stations):
             break
         else:
             print('Deze trein komt niet in ', invoer)
-            pass
+
     return invoer
 
 
@@ -16,10 +16,8 @@ def inlezenEindstation(stations, beginstation):
             break
         if invoer in stations:
             print('Eindstation moet verder zijn dan Beginstation \n')
-            pass
         else:
             print('Deze trein komt niet in ', invoer)
-            pass
     return invoer
 
 
@@ -28,6 +26,11 @@ def omroepenReis(stations, beginstation, eindstation):
     print('Het eindstation {} is het {}e station in dit traject \n'.format(eindstation, stations.index(eindstation) + 1))
     print('De afstand bedraagt {} station(s)'.format(stations.index(eindstation) - stations.index(beginstation)))
     print('De prijs van het kaartje is {} euro'.format((stations.index(eindstation) - stations.index(beginstation)) * 5))
+    print('U stapt in de trein in {}'.format(beginstation))
+    for station in range(int(stations.index(beginstation)) + 1, int(stations.index(eindstation))):
+        print(' - {}'.format(stations[station]))
+    print('U stapt uit de trein in {}'.format(eindstation))
+
 
 
 stations = ['Schagen', 'Heerhugowaard', 'Castricum', 'Zaandam', 'Amsterdam Sloterwijk', 'Amsterdam Centraal',
@@ -36,4 +39,4 @@ stations = ['Schagen', 'Heerhugowaard', 'Castricum', 'Zaandam', 'Amsterdam Slote
 beginstation = inlezenBeginstation(stations)
 eindstation = inlezenEindstation(stations, beginstation)
 
-print(omroepenReis(stations, beginstation, eindstation))
+omroepenReis(stations, beginstation, eindstation)
