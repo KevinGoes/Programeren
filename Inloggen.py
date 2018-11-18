@@ -3,7 +3,7 @@ from random import randint
 import smtplib
 
 def inloggen():
-    inlogGegevens = getGegevens()
+    inlogGegevens = getGegevens('gegevens')
     while True:
         inputGebruikerNaam = input('Gebruikersnaam: ')
         inputWachtwoord = input('Wachtwoord: ')
@@ -15,12 +15,13 @@ def inloggen():
 
 
 def wachtwoordWijzigen():
-    inlogGegevens = getGegevens()
+    inlogGegevens = getGegevens('gegevens')
     while True:
         inputGebruikerNaam = input('Gebruikersnaam: ')
         if inputGebruikerNaam in inlogGegevens.keys():
-            inputEmail = input('Voer hieronder uw e-mail in: ')
-            code = getCode(inputEmail)
+            inputEmail = getGegevens('email')
+            email = inputEmail[inputGebruikerNaam]
+            code = getCode(email)
             print('Voer de code in die op uw e-mail verschijnt!')
             inputCode = str(input('Code: '))
             break
@@ -60,18 +61,25 @@ def getCode(email):
     return code
 
 
-def getGegevens():
+def getGegevens(keuze):
     with open('inloggen.txt', 'r', newline='') as myTextFile:
         inlezen = myTextFile.readlines()
         gegevens = {}
+        email = {}
         count = 0
         for item in inlezen:
             gegeven = inlezen[count]
             gegeven = gegeven.replace('\r\n', '')
             gegeven = gegeven.split(';')
-            gegevens[gegeven[0]] = gegeven[1]
+            if keuze == 'gegevens':
+                gegevens[gegeven[0]] = gegeven[1]
+            else:
+                email[gegeven[0]] = gegeven[2]
             count += 1
-        return gegevens
+        if keuze == 'gegevens':
+            return gegevens
+        else:
+            return email
 
 
 while True:
@@ -90,3 +98,4 @@ while True:
         print(getCode(email))
         break
         # print('Keuze niet beschikbaar, probeer opnieuw')
+

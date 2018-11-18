@@ -1,4 +1,4 @@
-Keesmeteenk;Janpiet
-KevinGoes;eaa5932b8
-Testpersoon;12345
-JaimeyHolm;Jh2001
+Keesmeteenk;Janpiet;keesmeteenk@gmail.com
+KevinGoes;eaa5932b8;kevingoes01@gmail.com
+Testpersoon;12345;testpersoon@gmail.com
+JaimeyHolm;Jh2001;jaimeymike@gmail.com
