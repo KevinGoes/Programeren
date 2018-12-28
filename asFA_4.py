@@ -24,7 +24,7 @@ def my_sort(lst):
 
         i += 1                                          # Teller wordt met 1 verhoogd
 
-    return lst[:-len(links + rechts)] + links + rechts
+    return lst[:-len(links + rechts)] + links + rechts  # hierbij geeft hij de lijsten terug, links of rechts is leeg
 
 
 def random_lst():
@@ -38,27 +38,25 @@ def random_lst():
 
 def random_lst_no_duplicate():
     lst = []
-    i = random.randint(5, 25)
-    while i != 0:
-        newInt = random.randint(1, 99)
-        if newInt not in lst:
-            lst.append(newInt)
-        i -= 1
+    i = random.randint(5, 25)                           # Random lengte van de lijst
+    while i != 0:                                       # Zolang de lengte nog niet 0 is
+        newInt = random.randint(1, 99)                  # Random getal bepalen
+        if newInt not in lst:                           # Als het random getal nog niet in de lijst zit
+            lst.append(newInt)                          # Random getal toevoegen
+            i -= 1                                      # Lengte verminderen met 1 alleen als item is toegevoegd
     return lst
 
 
 def check_sort(lst):
-    if len(lst) <= 1:
-        return True
+    if len(lst) <= 1:                                   # Als de lengte kleiner of gelijk is aan 1
+        return True                                     # Er is niks meer te sorteren, geef True terug
 
     else:
-        return lst[0] < lst[1] and check_sort(lst[1:-1])
+        return lst[0] <= lst[1] and check_sort(lst[1:]) # Geef True terug als index 0 kleiner is dan index 1 en recursie
 
 
-# i = 10
-# while i != 0:
-#     tmpLst = random_lst_no_duplicate()
-#     print('{} \n Check = {} \n\n'.format(my_sort(tmpLst),check_sort(my_sort(tmpLst))))
-#     i -= 1
-
-print(my_sort([5, 13, 42, 11, 9]))
+i = 10                                                  # 10 keer random getal opvragen
+while i != 0:                                           # Zolang het nog niet 10 keer heeft afgespeeld
+    tmpLst = random_lst_no_duplicate()                  # Random lijst opslaan
+    print('{} \nCheck = {}\n'.format(my_sort(tmpLst), check_sort(my_sort(tmpLst))))
+    i -= 1                                              # I verminderen met 1
